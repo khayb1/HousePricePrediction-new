@@ -1,0 +1,5 @@
+Income,House_Age,Number_of_Rooms,Number_of_Bedrooms,Average_Population,Predicted_Price
+10000.0,5.0,4.0,3.0,10000.0,The predicted price is GHC 64881.00
+10000.0,5.0,4.0,2.0,20000.0,The predicted price is GHC 53380.00
+20000.0,6.0,6.0,4.0,10000.0,The predicted price is GHC 22452.00
+20000.0,10.0,1.0,4.0,10000.0,The predicted price is GHC 17301.00

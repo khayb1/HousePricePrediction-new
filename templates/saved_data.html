@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Saved Data</title>
+    <link rel="shortcut icon" href="/static/house-icon.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        a{
+            border: 1px solid black;
+            border-radius: 5px ;
+            background: black;
+            color: white;
+            padding: 5px;
+            text-decoration: none;
+            transition: 0.8s;
+        }
+        a:hover{
+            background:white;
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Saved Data</h1>
+    {% if saved_data %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Income</th>
+                    <th>House Age</th>
+                    <th>Number of Rooms</th>
+                    <th>Number of Bedrooms</th>
+                    <th>Average Population</th>
+                    <th>Predicted Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in saved_data %}
+                    <tr>
+                        <td>{{ row.Income }}</td>
+                        <td>{{ row.House_Age }}</td>
+                        <td>{{ row.Number_of_Rooms }}</td>
+                        <td>{{ row.Number_of_Bedrooms }}</td>
+                        <td>{{ row.Average_Population }}</td>
+                        <td>{{ row.Predicted_Price }}</td>
+                        <td>
+                            <form action="{% url 'delete_row' row_index=forloop.counter0 %}" method="post" style="display:inline;">
+                                {% csrf_token %}
+                                <input class="del" type="submit" value="Delete">
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No data available.</p>
+    {% endif %}
+    <br>
+    <a href="{% url 'predict' %}">Go Back</a>
+</body>
+</html>
