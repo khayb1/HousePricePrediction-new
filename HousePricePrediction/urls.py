@@ -17,14 +17,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import  path
 from .import views
-from django.urls import path
+from django.urls import path, include
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home),
-    path('predict/', views.predict, name ='predict'),
-    path('predict/result', views.result, name='result'),
-    path('predict/save_data', views.save_data, name='save_data' ),
-    path('predict/delete_row/<int:row_index>/', views.delete_row, name='delete_row'),
-    
+    path('', views.home, name='home'),  # Home page URL
+    path('home/', views.user_login, name='user_login'),  # User login URL
+    path('register/', views.user_register, name='user_register'),  # User registration URL
+    path('predict/', views.predict, name='predict'),  # Predict URL
+    path('predict/result/', views.result, name='result'),  # Result URL
+    path('predict/save_data/', views.save_data, name='save_data'),  # Save data URL
+    path('predict/delete_row/<int:row_index>/', views.delete_row, name='delete_row'),  # Delete row URL
+    path('home/', auth_views.LogoutView.as_view(), name='logout'), # Logout
 ]
+

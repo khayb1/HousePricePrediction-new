@@ -3,21 +3,49 @@ from httpx import request
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
-import seaborn as sns
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn import metrics
 import os
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login, logout
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
 
 DATA_FILE = r"C:\Users\KHAY_B\Desktop\New folder\HousePricePrediction\HousePricePrediction\saved_data.csv"
 
 def home(request):
     return render(request, "home.html")
 
+@login_required
 def predict(request):
-    return render(request, "predict.html")
+    return render(request, 'predict.html')
+
+def user_login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('predict')  # Redirect to the predict page
+        else:
+            # Invalid credentials
+            messages.error(request, "Invalid username or password.")
+    return render(request, 'home.html')
+
+def user_register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()  # Save the new user
+            messages.success(request, 'Your account has been created! ')
+            return redirect('predict')  # Redirect to home or login page after registration
+    else:
+        form = UserCreationForm()
+    
+    return render(request, 'home.html', {'form': form})
 
 def result(request):
   
@@ -89,5 +117,4 @@ def delete_row(request, row_index):
 
     # Redirect to the saved data page
     return redirect('save_data')
-
 

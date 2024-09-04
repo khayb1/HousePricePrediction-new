@@ -5,26 +5,49 @@
    
 }
 body{
-    background-image: url('/static/house.jpg');
+    background-image: url('/static/images/predict-photo.jpg');
     background-size: cover;
     background-position: center; 
     background-repeat: no-repeat;
-}
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}  
 
+
+.navbar{
+    margin-bottom:0;
+    padding: 5px 100px;
+    background-color: rgba(255, 255, 255, 0.23) !important;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3.2px);
+    -webkit-backdrop-filter: blur(3.2px);
+   
+}
+.logo-name{
+    font-size: 24px;
+    font-weight: bolder;
+    padding-top:20px ;
+}
+#house{
+    color: #007bff; ;
+}
  .main{
     display: flex;
     flex-direction: column;
     text-align: center;
     position: relative;
+    margin: 0;
+    padding: 0;
    
 }
 h1{
     text-align: center;
     font-size:40px;
+    font-weight: bolder;
 }
 h2{
     font-size:30px;
-    color:whitesmoke;
+    color:#111;
 }
 div{
       padding:15px;
@@ -45,28 +68,25 @@ input[type=submit]{
 .btn{
     text-align: center;
     border: 1px solid black;
+
     
 }
 
-a, .send{
+#view-data, .send{
     margin: auto;
-    border: 1px solid black;
+    border: none;
     border-radius: 5px;
     text-decoration: none !important;
     padding: 5px;
     transition: 0.8s;
     width: fit-content;
-    background-color: white;
-    color: black;
+    background-color: #007bff;
+    color: #fff;
 }
-a:hover{
-    background:black;
-    color: white;
+#view-data:hover, .send:hover{
+    background-color: #0056b3;
 }
-.send:hover{
-    background: white;
-    color: black;
-}
+
 #predict{
 margin: auto 0;
 }
@@ -89,8 +109,9 @@ form{
 
 .form-group{
     display: flex;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     align-items: center;
+    padding: 10px;
 }
 
 

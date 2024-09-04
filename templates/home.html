@@ -4,151 +4,244 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
-    <link rel="shortcut icon" href="/static/house-icon.png" type="image/x-icon">
-<!--    <link rel="stylesheet" href="/HousePricePrediction/static/style.css">-->
-<style>
-  *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-h1{
-    /* color:#2a2626;
-     */
-     color: white;
-    font-size: 45px;
-
-}
-body{
-    font-size: 30px;
-    /* height: 100vh; */
-    text-align: center;
-    background-image: url('/static/hosuing.jpg');
-    background-size: cover;
-    background-position: center; 
-    background-repeat: no-repeat;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-body::before{
-    content:'' ;
-    top: 0;
-    left: 0;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-}
-input[type=submit]{
-    background-color:#000000;
-    color:white;
-    cursor:pointer;
-    padding: 16px 25px;
-    font-size: 18px;
-    border-radius: 20px;
- }
-    .container{
-    position: relative;
-    margin:auto;
-    margin-top: 5%;
-    max-width: 900px;
-    height:500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #999;
-    border-radius: 10px;
-    /* padding: 10px; */
-    border: none;
-    }
-   .text{
-        flex:1;
-        padding: 20px;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.1);
-        border-top-left-radius: 5px;
-        border-bottom-left-radius: 5px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(1.01px);
-        -webkit-backdrop-filter: blur(0.7px);
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;   
-    }
-
-        
-    .login{
-        height: 100%;
-        width: 50%;
-        padding: 20px;
-        background: rgba(255, 255, 255, 0.35);
-        border-top-right-radius: 5px;
-        border-bottom-right-radius: 5px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(5.7px);
-        -webkit-backdrop-filter: blur(5.7px);
-    }
-    .login h3{
-    font-size: 32px;
-    font-weight: 500;
-    line-height: 42px;
-    text-align: center;
-}
-label{
-    display: block;
-    margin-top: 30px;
-    font-size: 19px;
-    font-weight: bolder;
-}
-input{
-    display: block;
-    height: 50px;
-    width: 100%;
-    background-color: rgba(255,255,255,0.5);
-    border-radius: 5px;
-    padding: 0 10px;
-    margin-top: 8px;
-    font-size: 16px;
-    font-weight: 300;
-    border: none;
-}
-
-::placeholder{
-    color:rgba(255,255,255,0.88);
-}
-button{
-    margin-top: 50px;
-    width: 100%;
-    /* background-color: #ffffff; */
-    color: rgba(255,255,255,0.88);
-    background: #333;
-    border: none;
-    padding: 15px 0;
-    font-size: 18px;
-    font-weight: 600;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-</style>
-
+    <link rel="shortcut icon" href="/static/images/house-icon.png" type="image/x-icon">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/static/css/home.css">
 </head>
 <body> 
+    <!-- navbar -->
+   <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        
-            <form class="text" action="predict">
-                <h1>WELCOME TO <span>HOUSE PRICE PREDICITON</span></h1>
-            </form>
-            <form class="login" action="predict">
-                <h3>Login Here</h3>
-                <label for="username">Username</label>
-                <input type="text" placeholder="Email or Phone" id="username">
-                <label for="password">Password</label>
-                <input type="password" placeholder="Password" id="password">
-                <button>Log In</button>
-            </form>
-
+        <a class="navbar-brand" href="#">
+            <img src="/static/images/logo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top rounded-2">
+            <span class="logo-name"><span id="house">House</span> Predictor GH </span>
+          </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="navbar-item">
+            <a class="navbar-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">Login</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form method="POST" action="{% url 'user_login' %}">
+              {% csrf_token %}
+             
+              <div class="mb-3">
+                 {% if messages %}
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {% for message in messages %}
+      {{ message }}
+    {% endfor %}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{% endif %}
+                <label for="loginUsername" class="form-label">Username</label>
+                <input type="text" class="form-control" id="loginUsername" name="username" required>
+              </div>
+              <div class="mb-3">
+                <label for="loginPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="loginPassword" name="password" required>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Login</button>
+              <p class="mt-2 new-item">Don't have an account? <a href="#" class="new-item" data-bs-toggle="modal" data-bs-target="#registerModal" data-bs-dismiss="modal" ><span class="note">Register here</span></a></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Registration Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="registerModalLabel">Register</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form method="POST" action="{% url 'user_register' %}">
+              {% csrf_token %}
+              <div class="mb-3">
+                <label for="registerUsername" class="form-label">Username</label>
+                <input type="text" class="form-control" id="registerUsername" name="username" required>
+              </div>
+              <div class="mb-3">
+                <label for="registerPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="registerPassword1" name="password1" required>
+              </div>
+              <div class="mb-3">
+                <label for="registerPassword2" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="registerPassword2" name="password2" required>
+              </div>
+              <button type="submit" class="btn btn-primary w-100 ">Register</button>
+              <p class="mt-2">Already have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal" class="note">Login here</a></p>
+              <ul class="note">NOTE</ul>
+              <li>Your password can't be too similar to your other personal information.</li>
+              <li>Your password must contain at least 8 characters.</li>
+             <li> Your password can't be a commonly used password.</li>
+             <li> Your password can't be entirely numeric.</li>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+          <!-- hero section -->
+          <div class="hero-section ">
+            <div class="hero-content row ">
+              <div class="hero-text  col ">
+                <h1>Predict Your Future Home's Value Instantly</h1>
+                <p>Discover how much your dream home is worth based on the latest market trends and data analysis.</p>
+                <button class="cta-button" data-bs-toggle="modal" data-bs-target="#loginModal">Predict Now</button>
+              </div>
+              <div class="hero-image ">
+                <img src="/static/images/hero.jpg" alt="House Image">
+              </div>
+            </div>
+          </div>
+          <!-- how it works -->
+          <section class="how-it-works">
+            <div class="container">
+              <h2>How It Works</h2>
+              <div class="row">
+                <div class="col-md-4 step">
+                  <div class="step-icon">
+                    <i class="fas fa-sign-in-alt"></i>
+                  </div>
+                  <div class="step-description">
+                    <h4>Step 1: Login or Register</h4>
+                    <p>Access the predictor page by logging in or registering for an account.</p>
+                  </div>
+                </div>
+                <div class="col-md-4 step">
+                  <div class="step-icon">
+                    <i class="fas fa-home"></i>
+                  </div>
+                  <div class="step-description">
+                    <h4>Step 2: Enter Details</h4>
+                    <p>Provide the necessary information such as income, house age, number of rooms, and more.</p>
+                  </div>
+                </div>
+                <div class="col-md-4 step">
+                  <div class="step-icon">
+                    <i class="fas fa-calculator"></i>
+                  </div>
+                  <div class="step-description">
+                    <h4>Step 3: Predict Price</h4>
+                    <p>Click the "Predict" button to see the estimated price of the house based on your inputs.</p>
+                  </div>
+                </div>
+                <div class="col-md-4 step">
+                  <div class="step-icon">
+                    <i class="fa-solid fa-file-shield"></i>
+                  </div>
+                  <div class="step-description">
+                    <h4>Step 4: Save Data</h4>
+                    <p>After obtaining the prediction, your data is saved at the 'saved data page'. You can click on view saved data to view previous predictions.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- map section  -->
+          <div class="container map-section">
+            <div class="text-center mb-4">
+              <h2>Search for Your Preferred Location On The Map</h2>
+        
+            <div class="row justify-content-center">
+              <div class="col-md-10">
+                <div class="map-container">
+                  <!-- Replace the src attribute with your actual map embed link -->
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d318701.2984064517!2d-0.22802161524015818!3d5.614818676601639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9aa6f0be2aa9%3A0x5668f2f094d2173d!2sAccra%2C%20Ghana!5e0!3m2!1sen!2sus!4v1693340412456!5m2!1sen!2sus" allowfullscreen="" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        
+          <!-- Cards Section -->
+    <div class="container-fluid my-3 card-section">
+    <div class="row">
+        <div class="section-title">
+            <h2>Explore Our Featured Houses</h2>
+            <p>Find your dream home from our selection of beautiful houses.</p>
+          </div>
+      <!-- Card 1 -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="/static/images/new photo.jpg" class="card-img-top" alt="House 1">
+          <div class="card-body">
+            <h5 class="card-title ">Beautiful Family House</h5>
+            <p class="card-text"><i class=" fas fa-money-bill"></i> Price: GHC 626,885</p>
+            <p class="card-text"><i class="fas fa-home"></i> Age: 7 years</p>
+            <p class="card-text "> <i class="fas fa-door-open"></i> Number of Rooms: 5</p>
+            <p class="card-text"><i class="fas fa-bed"></i> Number of Bedrooms: 3</p>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="/static/images/current.jpg" class="card-img-top" alt="House 2">
+          <div class="card-body">
+            <h5 class="card-title"></i>Modern Apartment</h5>
+            <p class="card-text"><i class=" fas fa-money-bill"></i> Price: GHC 383,424</p>
+            <p class="card-text"><i class="fas fa-home"></i> Age: 5 years</p>
+            <p class="card-text"> <i class="fas fa-door-open"></i> Number of Rooms: 4</p>
+            <p class="card-text"><i class="fas fa-bed"></i> Number of Bedrooms: 2</p>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="/static/images/image 4.jpg" class="card-img-top" alt="House 3">
+          <div class="card-body">
+            <h5 class="card-title">Cozy Cottage</h5>
+            <p class="card-text"><i class=" fas fa-money-bill"></i> Price: GHc 346,000</p>
+            <p class="card-text"><i class="fas fa-home"></i> Age: 7 years</p>
+            <p class="card-text"><i class="fas fa-door-open"></i> Number of Rooms: 4</p>
+            <p class="card-text"><i class="fas fa-bed"></i> Number of Bedrooms: 2</p>
+          </div>
+        </div>
+      </div>
+     <!-- card ends here -->
+    </div>
+  </div>
+        <!-- Footer section  -->
+  <footer>
+    <div class="footer-contributors">
+        <h5>Contributors:</h5>
+        <p>Derrick, Yvette, Kelvin</p>
+      </div>
+      <div class="footer-copy">
+        <p>&copy; 2024 House Predictor. All rights reserved.</p>
+      </div>
+  </footer>
+
+
+  <script>
+    // Initialize Bootstrap popover
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+  </script>
 </body>
 </html>
